@@ -1,0 +1,7 @@
+python:
+  runtime: python3.9
+  requirements:
+    - requests
+function:
+  name: chatbot-proxy
+  handler: lambda_function.lambda_handler

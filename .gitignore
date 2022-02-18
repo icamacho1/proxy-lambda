@@ -1,0 +1,7 @@
+# Folders
+python_modules
+__pycache__
+.mypy_cache
+
+# Files
+config.json
