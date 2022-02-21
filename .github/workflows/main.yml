@@ -30,8 +30,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       env:
-        API_KEY: ${{ secrets.API_KEY }}
+        CONFIG: ${{ secrets.CONFIG }}
       run: |
         export PYTHONPATH=src/:test/
-        echo $API_KEY | base64 -d > test/config.json
+        echo $CONFIG | base64 -d > test/config.json
         pytest
