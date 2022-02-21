@@ -34,6 +34,6 @@ jobs:
         HOLA: ${{ secrets.HOLA }}
       run: |
         export PYTHONPATH=src/:test/
-        echo "$CONF_FILE" | base64 -d >> $(pwd)/test/config.json
+        echo "$CONF_FILE" | base64 -d > $(pwd)/test/config.json
         echo "$HOLA"
         pytest
