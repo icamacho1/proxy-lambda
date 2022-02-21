@@ -28,8 +28,12 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Create config file
+    - uses: "finnp/create-file-action@master"
+      env:
+        FILE_NAME: "test/config.json"
+        FILE_BASE64: ${{ secrets.API_KEY }} 
     - name: Test with pytest
       run: |
         export PYTHONPATH=src/:test/
-        echo ${{ secrets.API_KEY }} | base64 -d > $(pwd)/test/config.json
         pytest
