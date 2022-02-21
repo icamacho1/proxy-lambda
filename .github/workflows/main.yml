@@ -33,6 +33,5 @@ jobs:
         CONFIG: ${{ secrets.CONFIG }}
       run: |
         export PYTHONPATH=src/:test/
-        echo "$CONFIG" | base64 -d >> test/config.json
-        cat test/config.json
+        echo "$CONFIG" | base64 -d >> $(pwd)/test/config.json
         pytest
