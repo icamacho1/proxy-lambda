@@ -29,13 +29,9 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
+      env:
+        CONFIG: ${{ secrets.CONFIG }}
       run: |
         export PYTHONPATH=src/:test/
-        echo { >> test/config.json
-        echo '"user": "${{secrets.USER}}"",' >> test/config.json
-        echo '"password": "${{secrets.PASSWORD}}",' >> test/config.json
-        echo '"get_url": "${{secrets.GET}}",' >> test/config.json
-        echo '"post_url": "${{secrets.POST}}",' >> test/config.json
-        echo '"launch_url": "${{secrets.LAUNCH}}"' >> test/config.json
-        echo } >> test/config.json
+        cat $CONFIG | base64 -d >> test/config.json
         pytest
