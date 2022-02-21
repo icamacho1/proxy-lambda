@@ -32,7 +32,7 @@ jobs:
       uses: "finnp/create-file-action@master"
       env:
         FILE_NAME: "test/config.json"
-        FILE_BASE64: ${{ secrets.API_KEY }}
+        FILE_BASE64: ${{ secrets.CONFIG }}
     - name: Test with pytest
       run: |
         export PYTHONPATH=src/:test/
