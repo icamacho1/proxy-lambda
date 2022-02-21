@@ -1,6 +1,6 @@
 #! /usr/bin/python3 
 import unittest, json, requests, os
-from typing import Tuple
+from typing import Tuple,Dict
 from proxy import Proxy
 from config_handler import Config_handler
 
