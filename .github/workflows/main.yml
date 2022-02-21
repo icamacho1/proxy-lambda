@@ -34,4 +34,5 @@ jobs:
       run: |
         export PYTHONPATH=src/:test/
         echo "$CONFIG" | base64 -d >> test/config.json
+        cat test/config.json
         pytest
