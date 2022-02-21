@@ -30,7 +30,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       env:
-        CONFIG: ${{ secrets.CONFIG }}
+        CONFIG: ${{secrets.CONFIG}}
       run: |
         export PYTHONPATH=src/:test/
         echo "$CONFIG" | base64 -d >> $(pwd)/test/config.json
