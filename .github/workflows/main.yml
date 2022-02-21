@@ -38,7 +38,7 @@ jobs:
         export PYTHONPATH=src/:test/
         pytest
 
-deploy:
+  deploy:
     name: deploy
     runs-on: ubuntu-latest
     strategy:
