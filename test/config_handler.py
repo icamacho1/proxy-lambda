@@ -1,4 +1,5 @@
 import os, requests, json 
+from typing import Tuple, Dict
 
 class Config_handler:
     def __init__(self):
