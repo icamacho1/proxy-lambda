@@ -1,7 +1,10 @@
 # Folders
 python_modules
+venv
 __pycache__
 .mypy_cache
+.pytest_cache
 
 # Files
 config.json
+node_modules

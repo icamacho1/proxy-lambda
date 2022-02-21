@@ -1,0 +1,22 @@
+service: proxy-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: eu-central-1
+  httpApi:
+    cors: true
+
+functions:
+  proxy-api:
+    handler: src/lambda_function.lambda_handler
+    environment:
+      PYTHONPATH: src/
+    events:
+      - httpApi:
+          path: /
+          method: any
+
+plugins:
+  - serverless-python-requirements
