@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/proxy-api/dev/1645445306484-2022-02-21T12:08:26.484Z/proxy-api.zip"
+          "S3Key": "serverless/proxy-api/dev/1645461376179-2022-02-21T16:36:16.179Z/proxy-api.zip"
         },
         "Handler": "src/lambda_function.lambda_handler",
         "Runtime": "python3.9",
@@ -184,14 +184,14 @@
         "ProxyDashapiLogGroup"
       ]
     },
-    "ProxyDashapiLambdaVersionfqw9wrEqHBW1tysV1gEQbfirdrXwYJE6z5M5NwlE": {
+    "ProxyDashapiLambdaVersionlAmBsa3qXDxPzFqTEsxi2X55kjvhs96emgX63WVIc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ProxyDashapiLambdaFunction"
         },
-        "CodeSha256": "nS7xQ22IoQNz3pBJpEsL5lZS4kT56hCBYxZou5k5Rt8="
+        "CodeSha256": "P/s5fU4PhGpqojsrDuVYOkV1ZLs1C5+EUhK4nhgs/5k="
       }
     },
     "HttpApi": {
@@ -324,7 +324,7 @@
     "ProxyDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ProxyDashapiLambdaVersionfqw9wrEqHBW1tysV1gEQbfirdrXwYJE6z5M5NwlE"
+        "Ref": "ProxyDashapiLambdaVersionlAmBsa3qXDxPzFqTEsxi2X55kjvhs96emgX63WVIc"
       },
       "Export": {
         "Name": "sls-proxy-api-dev-ProxyDashapiLambdaFunctionQualifiedArn"

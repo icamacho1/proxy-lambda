@@ -14,9 +14,9 @@ class Proxy:
     @try_except
     def execute(self, **kwargs) -> str:
         # Get the key values to the function:
-        request_method: str = kwargs.get("request_method", None)
-        url: str = kwargs.get("url", None)
-        headers: str = kwargs.get("headers", None)
+        request_method: Union[str,None] = kwargs.get("request_method", None)
+        url: Union[str, None] = kwargs.get("url", None)
+        headers: Union[Dict[str], None]= kwargs.get("headers", None)
         params: str = kwargs.get("params", None)
         cookies: str = kwargs.get("cookies", None)
         body: Any = kwargs.get("data", None)
@@ -37,12 +37,16 @@ class Proxy:
                 })
             
         if response.text:
-            json_data: Union[str,None] = json.loads((response.text))
+            try:
+                json_data: Union[str,None] = json.loads((response.text))
+            except:
+                json_data = "Plain HTML"
         else:
             json_data = None
 
         return json.dumps({
             "status_code": response.status_code,
+            "text": "Success", 
             "json": json_data,
             "headers": dict(response.headers),
             "cookies": dict(response.cookies)

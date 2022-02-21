@@ -7,6 +7,7 @@ Once cloned, you will first need to link the .githooks folder:
 cd proxy-lambda
 ln -s $(pwd)/.githooks/commit-msg $(pwd)/.git/hooks/commit-msg
 ```
+You will also need to use the serverless configuration resource:
 
 # TODO:
 * Finish the unit-tests to secure a stable API
