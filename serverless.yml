@@ -4,6 +4,7 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.9
+  timeout: 180
   region: eu-central-1
   httpApi:
     cors: true
