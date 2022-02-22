@@ -38,3 +38,5 @@ The built project works as an API.
 * The values passed to each parameter must be base 64 encoded.
 * The request method must be handled by the client in use.
 * Payloads will be passed by the client.
+
+![Tests](https://github.com/icamacho1/proxy-lambda/actions/workflows/main.yml/badge.svg)
