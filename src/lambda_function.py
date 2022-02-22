@@ -16,14 +16,23 @@ class Lambda_handler:
 		# Values:
 		self.url = self.__b64_decode("url")
 		self.cookies = self.__get_cookies()
-		self.params = json.loads(self.__b64_decode("params"))
-		self.headers = json.loads(self.__b64_decode("headers"))
+		self.params = self.__get_json("params")
+		self.headers = self.__get_json("headers")
 
 	def __b64_decode(self, key: str) -> Union[str,None]:
 		value = self.parameters.get(key, None)
 		if not value:
 			return None
+		print(b64decode(value.encode()).decode())
 		return b64decode(value.encode()).decode()
+
+	def __get_json(self, key:str) -> Union[Dict[str,str],None]:
+		value = self.__b64_decode(key)
+		try:
+			json_object = json.loads(value)
+		except:
+			json_object = None
+		return json_object
 
 
 	def __get_cookies(self) -> Union[Dict[str,str], None]:
