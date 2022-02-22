@@ -39,6 +39,7 @@ jobs:
         pytest
 
   deploy:
+    needs: build
     name: deploy
     runs-on: ubuntu-latest
     strategy:
