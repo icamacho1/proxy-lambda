@@ -23,7 +23,6 @@ class Lambda_handler:
 		value = self.parameters.get(key, None)
 		if not value:
 			return None
-		print(b64decode(value.encode()).decode())
 		return b64decode(value.encode()).decode()
 
 	def __get_json(self, key:str) -> Union[Dict[str,str],None]:
