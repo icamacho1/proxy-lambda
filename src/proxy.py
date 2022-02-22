@@ -50,3 +50,4 @@ class Proxy:
             "json": json_data,
             "headers": dict(response.headers),
             "cookies": dict(response.cookies)
+        })
