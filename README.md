@@ -7,9 +7,34 @@ Once cloned, you will first need to link the .githooks folder:
 cd proxy-lambda
 ln -s $(pwd)/.githooks/commit-msg $(pwd)/.git/hooks/commit-msg
 ```
-You will also need to use the serverless configuration resource:
+You will also need to use the serverless configuration resource.
 
-# TODO:
-* Finish the unit-tests to secure a stable API
-* Learn how to use Cloud Formation to deploy the whole infrastructure to AWS from a single command.
-* Set all the hooks neccesary to build a pipeline that will automatically deploy the project to AWS.
+To test and use the project locally you will need to work with a local environment.
+* Create a virtual environment
+```bash
+python3 -m venv venv
+```
+* Upgrade pip to the highest version.
+```bash
+pip3 install --upgrade pip
+```
+* Install the required python modules:
+```bash
+pip3 install -r requirements.txt 
+```
+* Install the serverless-python-requirements in the project:
+```bash
+npm install serverless-python-requirements
+```
+
+# Working in the project:
+Just need to work on the **src** directory. For every class or module created inside it, remmember to build the required tests.
+
+# Documentation:
+The built project works as an API.
+* The allowed methods at the moment are: GET, POST, PATCH as they are the only ones I will be using in the project I built the proxy for.
+* To make any successfull api call you need to pass the http values as a querystring as follows
+    http://API_ENDPOINT?*url=*&*params=*&*headers=*&*cookies=*
+* The values passed to each parameter must be base 64 encoded.
+* The request method must be handled by the client in use.
+* Payloads will be passed by the client.
