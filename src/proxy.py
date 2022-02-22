@@ -50,23 +50,3 @@ class Proxy:
             "json": json_data,
             "headers": dict(response.headers),
             "cookies": dict(response.cookies)
-        })
-
-if __name__ == "__main__":
-    proxy = Proxy()
-
-    with open("credentials.json", "rb") as file:
-            credentials = json.loads(file.read())
-        
-    url_auth: str = "https://sapqas.idom.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/Fiorilaunchpad.html"
-    auth: Tuple[str,str] = (credentials['user'], credentials['password'])
-    cookies: Dict[str,str] = dict(requests.get(url_auth, auth=auth).cookies)
-
-
-    request_method: str = "GET"
-    url: str ="https://sapqas.idom.com/sap/opu/odata/sap/ZSD_PROP_ODATA_SRV/ZSD_C_PROP_SM" 
-    params: Dict[str, str] = {"$top": "1"}
-    headers: Dict[str,str] = {"Accept": "application/json"}
-
-    data = proxy.execute(request_method=request_method, url=url, headers=headers, cookies=cookies, params=params)
-    print(data)
